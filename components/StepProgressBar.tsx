@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { ApplicationStep } from '../types';
-import { STEPS } from '../constants';
+import { ApplicationStep } from '../types.ts';
+import { STEPS } from '../constants.ts';
 
 interface Props {
   currentStep: ApplicationStep;

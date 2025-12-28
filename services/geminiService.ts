@@ -1,14 +1,14 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { FormData, AIReviewResult } from "../types";
+import { FormData, AIReviewResult } from "../types.ts";
 
-// Fixed: Correctly initialize GoogleGenAI with a named parameter using process.env.API_KEY
+// Initialize GoogleGenAI with a named parameter using process.env.API_KEY
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const reviewApplicationWithAI = async (data: FormData): Promise<AIReviewResult> => {
   try {
     const response = await ai.models.generateContent({
-      // Fixed: Using gemini-3-pro-preview for complex reasoning tasks like evaluating form consistency.
+      // Using gemini-3-pro-preview for complex reasoning tasks like evaluating form consistency.
       model: "gemini-3-pro-preview",
       contents: `Review this South African e-Visa application for potential issues or missing information: ${JSON.stringify(data)}`,
       config: {
@@ -30,7 +30,7 @@ export const reviewApplicationWithAI = async (data: FormData): Promise<AIReviewR
       }
     });
 
-    // Fixed: Directly access the .text property from the GenerateContentResponse object.
+    // Directly access the .text property from the GenerateContentResponse object.
     const text = response.text || "{}";
     return JSON.parse(text);
   } catch (error) {

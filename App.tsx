@@ -1,16 +1,15 @@
 
 import React, { useState } from 'react';
-import { ApplicationStep, FormData, AIReviewResult } from './types';
-import { INITIAL_FORM_DATA, NATIONALITIES, PURPOSES, STEPS } from './constants';
-import { StepProgressBar } from './components/StepProgressBar';
-import { reviewApplicationWithAI } from './services/geminiService';
+import { ApplicationStep, FormData, AIReviewResult } from './types.ts';
+import { INITIAL_FORM_DATA, NATIONALITIES, PURPOSES, STEPS } from './constants.ts';
+import { StepProgressBar } from './components/StepProgressBar.tsx';
+import { reviewApplicationWithAI } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [step, setStep] = useState<ApplicationStep>(ApplicationStep.START);
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
   const [aiReview, setAiReview] = useState<AIReviewResult | null>(null);
   const [loading, setLoading] = useState(false);
-  const [paymentDone, setPaymentDone] = useState(false);
 
   const updateFormData = (fields: Partial<FormData>) => {
     setFormData(prev => ({ ...prev, ...fields }));
