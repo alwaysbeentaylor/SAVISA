@@ -1,37 +1,29 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
-import { FormData, AIReviewResult } from "../types.ts";
+import { GoogleGenAI } from "@google/genai";
+import { FormData, AIReviewResult } from "../types";
 
 // Initialize GoogleGenAI with a named parameter using process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY || "";
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export const reviewApplicationWithAI = async (data: FormData): Promise<AIReviewResult> => {
   try {
-    const response = await ai.models.generateContent({
-      // Using gemini-3-pro-preview for complex reasoning tasks like evaluating form consistency.
-      model: "gemini-3-pro-preview",
-      contents: `Review this South African e-Visa application for potential issues or missing information: ${JSON.stringify(data)}`,
-      config: {
-        systemInstruction: "You are a professional immigration assistant for the South African Department of Home Affairs. Analyze the form data for consistency (e.g., passport expiry date vs travel dates) and common errors. Return a JSON object with 'status' (valid, warning, or error), 'summary', and 'suggestions' (an array of strings).",
+    if (!ai) {
+      throw new Error("AI service is not initialized (missing API key)");
+    }
+
+    const model = ai.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: "You are a professional immigration assistant for the South African Department of Home Affairs. Analyze the form data for consistency (e.g., passport expiry date vs travel dates) and common errors. Return a JSON object with 'status' (valid, warning, or error), 'summary', and 'suggestions' (an array of strings).",
+      generationConfig: {
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            status: { type: Type.STRING, description: "Final assessment status" },
-            summary: { type: Type.STRING, description: "Brief summary of the review" },
-            suggestions: {
-              type: Type.ARRAY,
-              items: { type: Type.STRING },
-              description: "Actionable advice for the applicant"
-            }
-          },
-          required: ["status", "summary", "suggestions"]
-        }
       }
     });
 
-    // Directly access the .text property from the GenerateContentResponse object.
-    const text = response.text || "{}";
+    const result = await model.generateContent(`Review this South African e-Visa application for potential issues or missing information: ${JSON.stringify(data)}`);
+    const response = await result.response;
+    const text = response.text();
+
     return JSON.parse(text);
   } catch (error) {
     console.error("AI Review failed:", error);

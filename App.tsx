@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import { ApplicationStep, FormData, AIReviewResult } from './types.ts';
-import { INITIAL_FORM_DATA, NATIONALITIES, PURPOSES, STEPS } from './constants.ts';
-import { StepProgressBar } from './components/StepProgressBar.tsx';
-import { reviewApplicationWithAI } from './services/geminiService.ts';
+import { ApplicationStep, FormData, AIReviewResult } from './types';
+import { INITIAL_FORM_DATA, NATIONALITIES, PURPOSES, STEPS } from './constants';
+import { StepProgressBar } from './components/StepProgressBar';
+import { reviewApplicationWithAI } from './services/geminiService';
 
 const App: React.FC = () => {
   const [step, setStep] = useState<ApplicationStep>(ApplicationStep.START);
@@ -186,15 +186,13 @@ const App: React.FC = () => {
             </div>
 
             {aiReview && (
-              <div className={`p-8 rounded-3xl border-2 shadow-sm animate-in fade-in slide-in-from-top-4 duration-500 ${
-                aiReview.status === 'valid' ? 'bg-emerald-50 border-emerald-200' : 
-                aiReview.status === 'warning' ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-red-200'
-              }`}>
+              <div className={`p-8 rounded-3xl border-2 shadow-sm animate-in fade-in slide-in-from-top-4 duration-500 ${aiReview.status === 'valid' ? 'bg-emerald-50 border-emerald-200' :
+                  aiReview.status === 'warning' ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-red-200'
+                }`}>
                 <div className="flex flex-col md:flex-row items-start gap-6">
-                  <div className={`p-4 rounded-2xl shadow-sm ${
-                    aiReview.status === 'valid' ? 'bg-emerald-200 text-emerald-800' : 
-                    aiReview.status === 'warning' ? 'bg-amber-200 text-amber-800' : 'bg-red-200 text-red-800'
-                  }`}>
+                  <div className={`p-4 rounded-2xl shadow-sm ${aiReview.status === 'valid' ? 'bg-emerald-200 text-emerald-800' :
+                      aiReview.status === 'warning' ? 'bg-amber-200 text-amber-800' : 'bg-red-200 text-red-800'
+                    }`}>
                     <StatusIcon status={aiReview.status} />
                   </div>
                   <div className="flex-1">
@@ -220,7 +218,7 @@ const App: React.FC = () => {
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
               <div className="bg-slate-900 px-8 py-5 text-white font-bold flex justify-between items-center">
                 <span className="text-lg">Application Draft</span>
-                <span className="px-3 py-1 bg-white/20 rounded-lg text-xs font-mono">ID: {Math.floor(Math.random()*900000 + 100000)}</span>
+                <span className="px-3 py-1 bg-white/20 rounded-lg text-xs font-mono">ID: {Math.floor(Math.random() * 900000 + 100000)}</span>
               </div>
               <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <SummaryItem label="Applicant Name" value={`${formData.firstName} ${formData.lastName}`} />
@@ -253,59 +251,59 @@ const App: React.FC = () => {
         return (
           <div className="max-w-3xl mx-auto space-y-8 animate-in slide-in-from-bottom-8 duration-500">
             <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-100 relative overflow-hidden">
-               {/* Decorative Gradient Line */}
-               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 via-gold-500 to-red-500" />
-               
-               <h2 className="text-3xl font-bold text-slate-900 mb-8 flex justify-between items-center">
-                 Secure Checkout
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-4 opacity-50" alt="Visa" />
-               </h2>
+              {/* Decorative Gradient Line */}
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 via-gold-500 to-red-500" />
 
-               <div className="flex flex-col md:flex-row gap-12">
-                  <div className="flex-1 space-y-6">
-                    <form onSubmit={handlePaymentSubmit} className="space-y-6">
-                       <FormGroup label="Cardholder Name" value={`${formData.firstName} ${formData.lastName}`} onChange={() => {}} placeholder="Full name as on card" />
-                       <FormGroup label="Card Number" value="" onChange={() => {}} placeholder="0000 0000 0000 0000" />
-                       <div className="grid grid-cols-2 gap-4">
-                          <FormGroup label="Expiry Date" value="" onChange={() => {}} placeholder="MM/YY" />
-                          <FormGroup label="CVC" value="" onChange={() => {}} placeholder="123" />
-                       </div>
-                       <button className="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3">
-                         {loading ? <LoadingSpinner /> : (
-                           <>
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                            Complete Secure Payment
-                           </>
-                         )}
-                       </button>
-                    </form>
-                  </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-8 flex justify-between items-center">
+                Secure Checkout
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-4 opacity-50" alt="Visa" />
+              </h2>
 
-                  <div className="w-full md:w-64 bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Pricing Summary</h4>
-                      <div className="space-y-3">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-slate-500">Visa Processing</span>
-                          <span className="font-bold">$65.00</span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-slate-500">Service Fee</span>
-                          <span className="font-bold">$20.00</span>
-                        </div>
-                        <div className="border-t pt-3 flex justify-between items-end">
-                          <span className="text-slate-900 font-bold">Total</span>
-                          <span className="text-2xl font-extrabold text-emerald-600">$85.00</span>
-                        </div>
+              <div className="flex flex-col md:flex-row gap-12">
+                <div className="flex-1 space-y-6">
+                  <form onSubmit={handlePaymentSubmit} className="space-y-6">
+                    <FormGroup label="Cardholder Name" value={`${formData.firstName} ${formData.lastName}`} onChange={() => { }} placeholder="Full name as on card" />
+                    <FormGroup label="Card Number" value="" onChange={() => { }} placeholder="0000 0000 0000 0000" />
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormGroup label="Expiry Date" value="" onChange={() => { }} placeholder="MM/YY" />
+                      <FormGroup label="CVC" value="" onChange={() => { }} placeholder="123" />
+                    </div>
+                    <button className="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3">
+                      {loading ? <LoadingSpinner /> : (
+                        <>
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                          Complete Secure Payment
+                        </>
+                      )}
+                    </button>
+                  </form>
+                </div>
+
+                <div className="w-full md:w-64 bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Pricing Summary</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-slate-500">Visa Processing</span>
+                        <span className="font-bold">$65.00</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-slate-500">Service Fee</span>
+                        <span className="font-bold">$20.00</span>
+                      </div>
+                      <div className="border-t pt-3 flex justify-between items-end">
+                        <span className="text-slate-900 font-bold">Total</span>
+                        <span className="text-2xl font-extrabold text-emerald-600">$85.00</span>
                       </div>
                     </div>
-                    <div className="mt-8 text-[10px] text-slate-400 leading-tight">
-                      All transactions are protected by bank-grade security. By clicking "Complete Secure Payment", you authorize the charge to your card.
-                    </div>
                   </div>
-               </div>
+                  <div className="mt-8 text-[10px] text-slate-400 leading-tight">
+                    All transactions are protected by bank-grade security. By clicking "Complete Secure Payment", you authorize the charge to your card.
+                  </div>
+                </div>
+              </div>
             </div>
-            
+
             <div className="flex justify-center gap-8 opacity-40">
               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-6" alt="PayPal" />
               <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-8" alt="MasterCard" />
@@ -375,13 +373,13 @@ const App: React.FC = () => {
             ))}
           </nav>
           <div className="flex items-center gap-6">
-             <div className="hidden sm:flex flex-col items-end">
-                <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest">Portal Version</p>
-                <p className="text-xs font-bold text-slate-800">2.5.0-PROTOTYPE</p>
-             </div>
-             <button className="p-2.5 rounded-xl bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors border">
-               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-             </button>
+            <div className="hidden sm:flex flex-col items-end">
+              <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest">Portal Version</p>
+              <p className="text-xs font-bold text-slate-800">2.5.0-PROTOTYPE</p>
+            </div>
+            <button className="p-2.5 rounded-xl bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors border">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </button>
           </div>
         </div>
       </header>
@@ -402,8 +400,8 @@ const App: React.FC = () => {
         {step !== ApplicationStep.START && step !== ApplicationStep.SUBMITTED && step !== ApplicationStep.PAYMENT && (
           <div className="fixed bottom-0 left-0 right-0 p-6 flex justify-center z-40">
             <div className="max-w-4xl w-full flex justify-between items-center bg-white/80 backdrop-blur-xl border border-slate-100 rounded-[2rem] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-              <button 
-                onClick={prevStep} 
+              <button
+                onClick={prevStep}
                 disabled={step === ApplicationStep.PERSONAL_INFO}
                 className="px-8 py-3.5 rounded-2xl font-bold border-2 hover:bg-slate-50 disabled:opacity-20 transition-all flex items-center gap-2"
               >
@@ -415,12 +413,11 @@ const App: React.FC = () => {
                   <div key={i} className={`h-1.5 rounded-full transition-all ${step === i + 1 ? 'w-8 bg-emerald-600' : 'w-2 bg-slate-200'}`} />
                 ))}
               </div>
-              <button 
-                onClick={nextStep} 
+              <button
+                onClick={nextStep}
                 disabled={step === ApplicationStep.REVIEW && !aiReview}
-                className={`px-12 py-3.5 rounded-2xl font-bold text-white shadow-xl transition-all flex items-center gap-2 active:scale-95 ${
-                  step === ApplicationStep.REVIEW ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-slate-900 hover:bg-slate-800'
-                } disabled:opacity-50`}
+                className={`px-12 py-3.5 rounded-2xl font-bold text-white shadow-xl transition-all flex items-center gap-2 active:scale-95 ${step === ApplicationStep.REVIEW ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-slate-900 hover:bg-slate-800'
+                  } disabled:opacity-50`}
               >
                 {step === ApplicationStep.REVIEW ? 'Proceed to Payment' : 'Next Step'}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
@@ -443,12 +440,12 @@ const App: React.FC = () => {
 const FormGroup: React.FC<{ label: string; value: string; onChange: (v: string) => void; placeholder?: string; type?: string; extraClass?: string }> = ({ label, value, onChange, placeholder, type = 'text', extraClass = '' }) => (
   <div className="space-y-2">
     <label className="text-sm font-bold text-slate-700">{label}</label>
-    <input 
-      type={type} 
-      value={value} 
-      onChange={e => onChange(e.target.value)} 
-      placeholder={placeholder} 
-      className={`w-full p-4 rounded-xl border bg-slate-50 focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all placeholder:text-slate-300 ${extraClass}`} 
+    <input
+      type={type}
+      value={value}
+      onChange={e => onChange(e.target.value)}
+      placeholder={placeholder}
+      className={`w-full p-4 rounded-xl border bg-slate-50 focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all placeholder:text-slate-300 ${extraClass}`}
     />
   </div>
 );
@@ -461,9 +458,8 @@ const SummaryItem: React.FC<{ label: string; value: string }> = ({ label, value 
 );
 
 const StatusBadge: React.FC<{ label: string; value: boolean }> = ({ label, value }) => (
-  <div className={`px-4 py-2 rounded-xl border text-xs font-bold flex items-center gap-2.5 transition-all ${
-    value ? 'bg-emerald-50 text-emerald-700 border-emerald-100 shadow-sm' : 'bg-red-50 text-red-700 border-red-100'
-  }`}>
+  <div className={`px-4 py-2 rounded-xl border text-xs font-bold flex items-center gap-2.5 transition-all ${value ? 'bg-emerald-50 text-emerald-700 border-emerald-100 shadow-sm' : 'bg-red-50 text-red-700 border-red-100'
+    }`}>
     <div className={`w-2 h-2 rounded-full animate-pulse ${value ? 'bg-emerald-500' : 'bg-red-500'}`} />
     {label}: {value ? 'PASS' : 'FLAGGED'}
   </div>
