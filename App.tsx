@@ -47,17 +47,17 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight">Official South Africa e-Visa</h1>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <div className="space-y-4 px-4">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Official South Africa e-Visa</h1>
+              <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
                 Apply for your South African travel authorization in minutes. Our intelligent system ensures your data is accurate and secure.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <button onClick={nextStep} className="px-10 py-5 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl hover:bg-emerald-700 transition-all transform hover:-translate-y-1 active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 px-6">
+              <button onClick={nextStep} className="w-full sm:w-auto px-10 py-4 md:py-5 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl hover:bg-emerald-700 transition-all transform hover:-translate-y-1 active:scale-95">
                 Apply Now
               </button>
-              <button className="px-10 py-5 bg-white text-slate-700 border-2 border-slate-200 font-bold rounded-2xl shadow-md hover:bg-slate-50 hover:border-slate-300 transition-all">
+              <button className="w-full sm:w-auto px-10 py-4 md:py-5 bg-white text-slate-700 border-2 border-slate-200 font-bold rounded-2xl shadow-md hover:bg-slate-50 hover:border-slate-300 transition-all">
                 Retrieve Application
               </button>
             </div>
@@ -81,9 +81,9 @@ const App: React.FC = () => {
 
       case ApplicationStep.PERSONAL_INFO:
         return (
-          <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center text-sm">1</span>
+          <div className="max-w-3xl mx-auto bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex-shrink-0 flex items-center justify-center text-sm">1</span>
               Personal Information
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -105,9 +105,9 @@ const App: React.FC = () => {
 
       case ApplicationStep.PASSPORT_INFO:
         return (
-          <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center text-sm">2</span>
+          <div className="max-w-3xl mx-auto bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex-shrink-0 flex items-center justify-center text-sm">2</span>
               Passport Details
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -126,9 +126,9 @@ const App: React.FC = () => {
 
       case ApplicationStep.TRAVEL_INFO:
         return (
-          <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center text-sm">3</span>
+          <div className="max-w-3xl mx-auto bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex-shrink-0 flex items-center justify-center text-sm">3</span>
               Travel Information
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -150,9 +150,9 @@ const App: React.FC = () => {
 
       case ApplicationStep.SECURITY_QUESTIONS:
         return (
-          <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center text-sm">4</span>
+          <div className="max-w-3xl mx-auto bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-slate-100 animate-in slide-in-from-bottom-4 duration-500">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex-shrink-0 flex items-center justify-center text-sm">4</span>
               Security & Eligibility
             </h2>
             <div className="space-y-6">
@@ -176,11 +176,11 @@ const App: React.FC = () => {
       case ApplicationStep.REVIEW:
         return (
           <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Final Verification</h2>
-              <button onClick={handleAIReview} disabled={loading} className="group relative flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-2xl shadow-xl hover:bg-indigo-700 disabled:opacity-50 transition-all font-bold overflow-hidden">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Final Verification</h2>
+              <button onClick={handleAIReview} disabled={loading} className="w-full md:w-auto group relative flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-2xl shadow-xl hover:bg-indigo-700 disabled:opacity-50 transition-all font-bold overflow-hidden">
                 {loading ? <LoadingSpinner /> : <AIIcon />}
-                {loading ? 'AI Review in Progress...' : 'Run Smart AI Review'}
+                {loading ? 'AI Reviewing...' : 'Run Smart AI Review'}
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform" />
               </button>
             </div>
@@ -216,11 +216,11 @@ const App: React.FC = () => {
             )}
 
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-              <div className="bg-slate-900 px-8 py-5 text-white font-bold flex justify-between items-center">
-                <span className="text-lg">Application Draft</span>
-                <span className="px-3 py-1 bg-white/20 rounded-lg text-xs font-mono">ID: {Math.floor(Math.random() * 900000 + 100000)}</span>
+              <div className="bg-slate-900 px-6 md:px-8 py-5 text-white font-bold flex justify-between items-center">
+                <span className="text-base md:text-lg">Application Draft</span>
+                <span className="px-3 py-1 bg-white/20 rounded-lg text-[10px] md:text-xs font-mono">ID: {Math.floor(Math.random() * 900000 + 100000)}</span>
               </div>
-              <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8">
                 <SummaryItem label="Applicant Name" value={`${formData.firstName} ${formData.lastName}`} />
                 <SummaryItem label="Citizenship" value={formData.nationality} />
                 <SummaryItem label="Document No." value={formData.passportNumber} />
@@ -238,9 +238,9 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-8 bg-indigo-50/50 rounded-3xl border border-indigo-100 flex items-start gap-4">
-              <input type="checkbox" id="declaration" className="mt-1.5 w-6 h-6 rounded-md accent-indigo-600 cursor-pointer" />
-              <label htmlFor="declaration" className="text-sm text-slate-700 leading-relaxed font-medium cursor-pointer select-none">
+            <div className="p-6 md:p-8 bg-indigo-50/50 rounded-3xl border border-indigo-100 flex items-start gap-4">
+              <input type="checkbox" id="declaration" className="mt-1.5 w-5 h-5 md:w-6 md:h-6 rounded-md accent-indigo-600 cursor-pointer flex-shrink-0" />
+              <label htmlFor="declaration" className="text-xs md:text-sm text-slate-700 leading-relaxed font-medium cursor-pointer select-none">
                 I hereby certify that all information in this application is accurate and true. I understand that misrepresentation may lead to immediate visa cancellation and permanent ban from South Africa. I agree to the processing of my biometric data.
               </label>
             </div>
@@ -254,9 +254,9 @@ const App: React.FC = () => {
               {/* Decorative Gradient Line */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 via-gold-500 to-red-500" />
 
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 flex justify-between items-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex justify-between items-center">
                 Secure Checkout
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-4 opacity-50" alt="Visa" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3 md:h-4 opacity-50" alt="Visa" />
               </h2>
 
               <div className="flex flex-col md:flex-row gap-12">
@@ -318,25 +318,25 @@ const App: React.FC = () => {
             <div className="w-32 h-32 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 ring-[12px] ring-emerald-50 shadow-inner">
               <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
             </div>
-            <div className="space-y-4">
-              <h2 className="text-5xl font-extrabold text-slate-900 tracking-tight">Payment Confirmed!</h2>
-              <p className="text-xl text-slate-600 max-w-xl mx-auto leading-relaxed">
+            <div className="space-y-4 px-4">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Payment Confirmed!</h2>
+              <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto leading-relaxed">
                 Your application <strong>ZA-992-102-XJ</strong> has been transmitted to the Pretoria Processing Center.
               </p>
             </div>
-            <div className="bg-white p-10 rounded-[2.5rem] shadow-2xl border border-slate-100 max-w-lg mx-auto mt-12 space-y-6 relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-slate-900 text-white text-xs font-bold uppercase rounded-full tracking-widest">Official Receipt</div>
+            <div className="bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-slate-100 max-w-lg mx-auto mt-12 space-y-6 relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-slate-900 text-white text-[10px] md:text-xs font-bold uppercase rounded-full tracking-widest">Official Receipt</div>
               <div className="flex justify-between border-b border-slate-50 pb-5">
-                <span className="text-slate-500 font-medium">Processing Status</span>
-                <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-lg text-xs font-bold uppercase tracking-wider">Queue: High Priority</span>
+                <span className="text-slate-500 font-medium text-sm md:text-base">Processing Status</span>
+                <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-lg text-[10px] font-bold uppercase tracking-wider">Queue: High Priority</span>
               </div>
               <div className="flex justify-between border-b border-slate-50 pb-5">
-                <span className="text-slate-500 font-medium">Estimated Review</span>
-                <span className="font-extrabold text-slate-900">36 - 48 Business Hours</span>
+                <span className="text-slate-500 font-medium text-sm md:text-base">Estimated Review</span>
+                <span className="font-extrabold text-slate-900 text-sm md:text-base">36 - 48 Business Hours</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500 font-medium">Update Channel</span>
-                <span className="font-bold text-emerald-600 underline underline-offset-4 decoration-emerald-200">{formData.email}</span>
+                <span className="text-slate-500 font-medium text-sm md:text-base">Update Channel</span>
+                <span className="font-bold text-emerald-600 underline underline-offset-4 decoration-emerald-200 text-sm md:text-base break-all">{formData.email}</span>
               </div>
             </div>
             <button onClick={() => setStep(ApplicationStep.START)} className="mt-12 px-12 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl active:scale-95">
@@ -398,29 +398,30 @@ const App: React.FC = () => {
 
         {/* Floating Navigation Controls */}
         {step !== ApplicationStep.START && step !== ApplicationStep.SUBMITTED && step !== ApplicationStep.PAYMENT && (
-          <div className="fixed bottom-0 left-0 right-0 p-6 flex justify-center z-40">
-            <div className="max-w-4xl w-full flex justify-between items-center bg-white/80 backdrop-blur-xl border border-slate-100 rounded-[2rem] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+          <div className="fixed bottom-0 left-0 right-0 p-4 md:p-6 flex justify-center z-40">
+            <div className="max-w-4xl w-full flex justify-between items-center bg-white/90 backdrop-blur-xl border border-slate-100 rounded-2xl md:rounded-[2rem] p-3 md:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
               <button
                 onClick={prevStep}
                 disabled={step === ApplicationStep.PERSONAL_INFO}
-                className="px-8 py-3.5 rounded-2xl font-bold border-2 hover:bg-slate-50 disabled:opacity-20 transition-all flex items-center gap-2"
+                className="px-4 md:px-8 py-3 md:py-3.5 rounded-xl md:rounded-2xl font-bold border-2 hover:bg-slate-50 disabled:opacity-20 transition-all flex items-center gap-2 text-sm md:text-base"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-                Previous
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+                <span className="hidden sm:inline">Previous</span>
               </button>
-              <div className="flex gap-2">
+              <div className="flex gap-1.5 md:gap-2">
                 {STEPS.slice(1, -1).map((_, i) => (
-                  <div key={i} className={`h-1.5 rounded-full transition-all ${step === i + 1 ? 'w-8 bg-emerald-600' : 'w-2 bg-slate-200'}`} />
+                  <div key={i} className={`h-1 md:h-1.5 rounded-full transition-all ${step === i + 1 ? 'w-6 md:w-8 bg-emerald-600' : 'w-1.5 md:w-2 bg-slate-200'}`} />
                 ))}
               </div>
               <button
                 onClick={nextStep}
                 disabled={step === ApplicationStep.REVIEW && !aiReview}
-                className={`px-12 py-3.5 rounded-2xl font-bold text-white shadow-xl transition-all flex items-center gap-2 active:scale-95 ${step === ApplicationStep.REVIEW ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-slate-900 hover:bg-slate-800'
+                className={`px-6 md:px-12 py-3 md:py-3.5 rounded-xl md:rounded-2xl font-bold text-white shadow-xl transition-all flex items-center gap-2 active:scale-95 text-sm md:text-base ${step === ApplicationStep.REVIEW ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-slate-900 hover:bg-slate-800'
                   } disabled:opacity-50`}
               >
-                {step === ApplicationStep.REVIEW ? 'Proceed to Payment' : 'Next Step'}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
+                <span className="hidden sm:inline">{step === ApplicationStep.REVIEW ? 'Proceed to Payment' : 'Next Step'}</span>
+                <span className="sm:hidden">{step === ApplicationStep.REVIEW ? 'Pay' : 'Next'}</span>
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
               </button>
             </div>
           </div>
